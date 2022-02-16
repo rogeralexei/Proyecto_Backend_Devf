@@ -1,10 +1,12 @@
 const express=require('express')
 const sequelize=require('./models/connection')
 const moviesRoutes = require('./routes/routes')
+const cors = require("cors");
 const app = express()
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cors());
 
 // SETUP MOVIES ROUTES
 app.use("/", moviesRoutes);
